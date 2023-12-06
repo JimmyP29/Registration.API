@@ -3,7 +3,7 @@ using Registration.API.Repositories;
 
 namespace Registration.API.Services
 {
-    public class RegistrationService : IRegistrationService
+    internal class RegistrationService : IRegistrationService
     {
         private IRegistrationRepository _repository;
         

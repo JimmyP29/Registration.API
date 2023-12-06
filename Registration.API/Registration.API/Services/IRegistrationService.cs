@@ -2,7 +2,7 @@
 
 namespace Registration.API.Services
 {
-    public interface IRegistrationService
+    internal interface IRegistrationService
     {
         public Task<List<UserDTO>> GetUsers();
         public Task<IResult> RegisterUser(UserDTO user);

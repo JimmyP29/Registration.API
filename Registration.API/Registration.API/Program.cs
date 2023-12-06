@@ -1,5 +1,4 @@
 using Registration.API;
-using Registration.API.Models;
 using Registration.API.Repositories;
 using Registration.API.Services;
 
@@ -14,7 +13,6 @@ builder.Services.AddSingleton<IRegistrationRepository, RegistrationRepository>()
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,24 +21,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var users = new List<UserDTO>();
-
-
-/*app.MapPost("/register", (UserDTO user) => {
-    users.Add(user);
-});
-
-app.MapPost("/login", (string username, string password) => {
-   
-});
-
-app.MapGet("/users", () => {
-    return users;
-});*/
 app.ConfigureApi();
 
-
 app.Run();
-
-
-
