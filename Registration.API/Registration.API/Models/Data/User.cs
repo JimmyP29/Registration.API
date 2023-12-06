@@ -2,7 +2,7 @@
 
 namespace Registration.API.Models.Data
 {
-    public class User
+    public record User
     {
         [Key]
         public Guid Id { get; set; }
