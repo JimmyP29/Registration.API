@@ -1,3 +1,5 @@
+using Registration.API.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -29,7 +31,7 @@ app.MapGet("/users", () => {
 
 app.Run();
 
-public record User
+/*public record User
 {
     public string Username { get; set; }
     public string Email { get; set; }
@@ -41,4 +43,4 @@ public record User
         Email = email;
         Password = password;
     }
-}
+}*/
