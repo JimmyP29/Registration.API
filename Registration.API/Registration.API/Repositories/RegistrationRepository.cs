@@ -1,6 +1,5 @@
 ﻿using Registration.API.Data;
 using Registration.API.Models.Data;
-using Registration.API.Models.DTO;
 
 namespace Registration.API.Repositories
 {
@@ -17,9 +16,12 @@ namespace Registration.API.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IResult> RegisterUser(UserDTO user)
+        public async Task<User> RegisterUser(User user)
         {
-            throw new NotImplementedException();
+           _dbContext.Users.Add(user);
+           _dbContext.SaveChanges();
+
+           return user;
         }
 
         public RegistrationRepository()

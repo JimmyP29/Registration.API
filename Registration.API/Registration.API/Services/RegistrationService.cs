@@ -26,9 +26,12 @@ namespace Registration.API.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IResult> RegisterUser(UserDTO user)
+        public async Task<UserDTO> RegisterUser(UserDTO user)
         {
-            throw new NotImplementedException();
+            var userToRegister = new User(user.Username, user.Email, user.Password);
+            var registeredUser = await _repository.RegisterUser(userToRegister);
+
+            return new UserDTO(registeredUser.Username, registeredUser.Email, registeredUser.Password); 
         }
 
         public RegistrationService()

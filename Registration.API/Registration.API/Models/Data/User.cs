@@ -9,5 +9,13 @@ namespace Registration.API.Models.Data
         public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
+
+        public User(string username, string email, string password)
+        {
+            Id = Guid.NewGuid();
+            Username = username;
+            Email = email;
+            Password = password;
+        }
     }
 }
