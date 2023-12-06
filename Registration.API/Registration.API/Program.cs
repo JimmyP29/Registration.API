@@ -18,10 +18,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var users = new List<User>();
+var users = new List<UserDTO>();
 
-app.MapPost("/register", (User user) => {
+app.MapPost("/register", (UserDTO user) => {
     users.Add(user);
+});
+
+app.MapPost("/login", (string username, string password) => {
+   
 });
 
 app.MapGet("/users", () => {
