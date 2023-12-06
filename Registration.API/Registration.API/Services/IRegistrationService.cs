@@ -1,4 +1,4 @@
-﻿using Registration.API.Models;
+﻿using Registration.API.Models.DTO;
 
 namespace Registration.API.Services
 {

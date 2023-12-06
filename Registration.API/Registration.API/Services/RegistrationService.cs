@@ -1,4 +1,5 @@
-﻿using Registration.API.Models;
+﻿using Registration.API.Models.Data;
+using Registration.API.Models.DTO;
 using Registration.API.Repositories;
 
 namespace Registration.API.Services
@@ -9,7 +10,15 @@ namespace Registration.API.Services
         
         public async Task<List<UserDTO>> GetUsers()
         {
-            return await _repository.GetUsers();
+            var result = new List<UserDTO>();
+            var persistedUsers = await _repository.GetUsers();
+
+            foreach (User user in persistedUsers)
+            {
+                result.Add(new UserDTO(user.Username, user.Email, user.Password));
+            }
+
+            return result;
         }
 
         public async Task<IResult> LoginUser(string username, string password)
