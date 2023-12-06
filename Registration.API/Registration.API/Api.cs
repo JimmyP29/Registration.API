@@ -18,17 +18,16 @@ namespace Registration.API
         {
             try
             {
-                var results = await registrationService.GetUsers();
+                var users = await registrationService.GetUsers();
 
-                if (results == null) return Results.BadRequest();
+                if (users == null) return Results.BadRequest();
 
-                if (results.Count == 0) return Results.Ok("No Users in the system");
+                if (users.Count == 0) return Results.Ok("No Users in the system");
 
-                return Results.Ok(results);
+                return Results.Ok(users);
             }
             catch (Exception ex)
             {
-
                 return Results.Problem(ex.Message);
             }
         }
@@ -37,15 +36,14 @@ namespace Registration.API
         {
             try
             {
-                var result = await registrationService.RegisterUser(user);
+                var registeredUser = await registrationService.RegisterUser(user);
 
-                if (result == null) return Results.BadRequest();
+                if (registeredUser == null) return Results.BadRequest();
 
-                return Results.Ok(result);
+                return Results.Ok(registeredUser);
             }
             catch (Exception ex)
             {
-
                 return Results.Problem(ex.Message);
             }
         }
@@ -54,15 +52,14 @@ namespace Registration.API
         {
             try
             {
-                var result = await registrationService.LoginUser(username, password);
+                var user = await registrationService.LoginUser(username, password);
 
-                if (result == null) return Results.BadRequest();
+                if (user == null) return Results.BadRequest();
 
-                return Results.Ok(result);
+                return Results.Ok(user);
             }
             catch (Exception ex)
             {
-
                 return Results.Problem(ex.Message);
             }
         }
