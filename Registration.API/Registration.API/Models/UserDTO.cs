@@ -1,6 +1,6 @@
 ﻿namespace Registration.API.Models
 {
-    internal record UserDTO
+    internal class UserDTO
     {
         public string Username { get; set; }
         public string Email { get; set; }
