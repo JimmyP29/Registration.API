@@ -7,6 +7,7 @@ namespace Registration.API
     {
         public static void ConfigureApi(this WebApplication app)
         {
+
             // I would apply Authentication to this endpoint using .UseAuthorization() against an IdentityUser
             app.MapGet("/users", GetUsers);
 
