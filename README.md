@@ -6,7 +6,7 @@ The project can be setup once cloned down in Visual Studio by simply running the
 ## How to use with Swagger
 
 ### `GetUsers` (No users)
-![GetUsers_no_users]('https://github.com/JimmyP29/Registration.API/blob/master/assets/No_Users.gif')
+![GetUsers_no_users](https://github.com/JimmyP29/Registration.API/blob/master/assets/No_Users.gif)
 
 ### `RegisterUser` 
 
