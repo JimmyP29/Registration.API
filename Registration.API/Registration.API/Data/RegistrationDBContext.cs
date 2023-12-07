@@ -8,7 +8,6 @@ namespace Registration.API.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseInMemoryDatabase(databaseName: "Registration");
         }
 
