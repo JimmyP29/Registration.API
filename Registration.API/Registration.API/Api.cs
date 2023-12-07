@@ -54,7 +54,7 @@ namespace Registration.API
             {
                 var token = await registrationService.LoginUser(username, password);
 
-                if (token == null) return Results.NoContent();
+                if (token == null) return Results.BadRequest("Credentials were incorrect");
 
                 return Results.Ok(token);
             }
