@@ -11,11 +11,6 @@ namespace Registration.API.Repositories
             return _dbContext.Users.ToList();
         }
 
-        public Task<IResult> LoginUser(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<User> RegisterUser(User user)
         {
            _dbContext.Users.Add(user);

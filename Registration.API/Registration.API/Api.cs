@@ -40,7 +40,7 @@ namespace Registration.API
 
                 if (registeredUser == null) return Results.BadRequest();
 
-                return Results.Ok(registeredUser);
+                return Results.Created("Registered Successfully", registeredUser);
             }
             catch (Exception ex)
             {
@@ -52,11 +52,11 @@ namespace Registration.API
         {
             try
             {
-                var user = await registrationService.LoginUser(username, password);
+                var token = await registrationService.LoginUser(username, password);
 
-                if (user == null) return Results.BadRequest();
+                if (token == null) return Results.NoContent();
 
-                return Results.Ok(user);
+                return Results.Ok(token);
             }
             catch (Exception ex)
             {
