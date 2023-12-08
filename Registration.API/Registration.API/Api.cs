@@ -50,11 +50,11 @@ namespace Registration.API
             }
         }
 
-        private static async Task<IResult> LoginUser(string username, string password, IRegistrationService registrationService)
+        private static async Task<IResult> LoginUser(LoginDTO login, IRegistrationService registrationService)
         {
             try
             {
-                var token = await registrationService.LoginUser(username, password);
+                var token = await registrationService.LoginUser(login.Username, login.Password);
 
                 if (token == null) return Results.BadRequest("Credentials were incorrect");
 
