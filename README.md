@@ -1,4 +1,7 @@
 # Registration.API
+A .NET 8 Minimal Web API project that contains functionality for Registering, Logging in and Retriving persisted users. Please view this as a WIP, the same as with the [Registration.UI](https://github.com/JimmyP29/Registration.UI) project. I have made the decision to give a flavour of coding style and structure, as asked for and have not added things such as tests or validation. As such please let me be clear - __although it runs and works, I would not consider this a complete solution__ let alone a production ready one. 
+
+I hope this is cool.
 
 ## Setting Up
 The project can be setup once cloned down in Visual Studio by simply running the project from within the IDE. As it is using an in-memory db there are no migrations that need to be run or set up.
@@ -23,13 +26,13 @@ The project can be setup once cloned down in Visual Studio by simply running the
 ## What I have done
 I have created a new .NET 8 Web API project and implemented as a Minimal API. This took me a bit of time as I have only used Controllers in the past. I think that I have implemented a solution which is tidy as the endpoints live within the `Api.cs` file as opposed to all being within `Program.cs`. The solution also includes DI which I was unsure at first how to implement without controllers as well. All in all this was a really fun learning experience. :+1:
 
-I have used a DTO as well as a Data Object to facilitate the data flow through the system using service and repository layers, along with their own interfaces to aid in decoupling and improve testability (please see about testing in '__What I have not done__'). Dependency Injection has been used throughout.
+I have used a DTO as well as a Data Object to facilitate the data flow through the system using service and repository layers, along with their own interfaces to aid in decoupling and improve testability (please see about testing in '__Where this needs improvement in the short term__'). Dependency Injection has been used throughout.
 
 I have kept all business logic in the service layer and away from the endpoints.
 
 I have used an In-Memory Database as asked for.
 
-## What I have not done
+## Where this needs improvement in the short term
 I know that the purpose of this test was to evaluate coding style, approach and decision-making abilities, so I hope you will forgive some quite glaring ommissions and accept my explanation for them here instead. This is all in the interests of time.
 
 - __Testing__: There are no tests in this project. I would plan to have tests for the service layer and repository layers which would mock the dependencies expected of them that have been passed into the constructors. I would test both the happy and sad paths for each method.
