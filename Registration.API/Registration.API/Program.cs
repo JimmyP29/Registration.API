@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Registration.API;
 using Registration.API.Data;
 using Registration.API.Repositories;
@@ -10,7 +12,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IRegistrationService, RegistrationService>();
 builder.Services.AddSingleton<IRegistrationRepository, RegistrationRepository>();
-builder.Services.AddDbContext<RegistrationDBContext>();
+builder.Services.AddDbContext<RegistrationDBContext>(options => options.UseInMemoryDatabase("Registration"));
+
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<RegistrationDBContext>()
+    .AddApiEndpoints();
+
+builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
+builder.Services.AddAuthorizationBuilder();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(myAllowSpecificOrigins,
@@ -32,6 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapIdentityApi<IdentityUser>();
 
 app.UseCors(myAllowSpecificOrigins);
 

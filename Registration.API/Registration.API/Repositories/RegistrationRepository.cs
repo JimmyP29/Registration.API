@@ -19,9 +19,9 @@ namespace Registration.API.Repositories
            return user;
         }
 
-        public RegistrationRepository()
+       /* public RegistrationRepository()
         {
             _dbContext = new RegistrationDBContext(); 
-        }
+        }*/
     }
 }

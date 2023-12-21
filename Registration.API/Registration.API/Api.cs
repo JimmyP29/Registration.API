@@ -1,5 +1,4 @@
-﻿using Registration.API.Models.DTO;
-using Registration.API.Services;
+﻿using System.Security.Claims;
 
 namespace Registration.API
 {
@@ -7,16 +6,19 @@ namespace Registration.API
     {
         public static void ConfigureApi(this WebApplication app)
         {
+            app.MapGet("/users", GetUsers).RequireAuthorization();
 
-            // I would apply Authentication to this endpoint using .UseAuthorization() against an IdentityUser
-            app.MapGet("/users", GetUsers);
+            /*app.MapPost("/register", RegisterUser);
 
-            app.MapPost("/register", RegisterUser);
-
-            app.MapPost("/login", LoginUser);
+            app.MapPost("/login", LoginUser);*/
         }
 
-        private static async Task<IResult> GetUsers(IRegistrationService registrationService)
+        private static async Task<IResult> GetUsers(ClaimsPrincipal user)
+        {
+            return Results.Ok($"User {user.Identity!.Name}");
+        }
+
+/*        private static async Task<IResult> GetUsers(IRegistrationService registrationService)
         {
             try
             {
@@ -64,6 +66,6 @@ namespace Registration.API
             {
                 return Results.Problem(ex.Message);
             }
-        }
+        }*/
     }
 }
